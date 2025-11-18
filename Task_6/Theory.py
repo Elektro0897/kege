@@ -41,3 +41,4 @@ for x in range(-10, 25):
     for y in range(-25, 10):
         goto(x * m, y * m)
         dot(3, 'red')
+
