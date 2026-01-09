@@ -21,17 +21,47 @@
 # 10. or
 
 # Решение через лесенку
-print('a b c d')
-for a in range(2):
-    for b in (0, 1):
-        for c in [0, 1]:
-            for d in 0, 1:
-                f = (not a and not b) or (b == c) or d
-                # все строки истинны
-                if f:
-                    print(a, b, c, d)
-                # все строки ложны
-                if not f:
-                    print(a, b, c, d)
-                # строки вперемешку
-                print(a, b, c, d)
+# print('a b c d')
+# for a in range(2):
+#     for b in (0, 1):
+#         for c in [0, 1]:
+#             for d in 0, 1:
+#                 f = (not a and not b) or (b == c) or d
+#                 # все строки истинны
+#                 if f:
+#                     print(a, b, c, d)
+#                 # все строки ложны
+#                 if not f:
+#                     print(a, b, c, d)
+#                 # строки вперемешку
+#                 print(a, b, c, d)
+
+
+# args
+# def f1(a, b, c):
+#     return a + b + c
+# test1 = [1, 2, 3]
+# print(f1(*test1))
+
+# kwargs
+# def f2(a, b):
+#     return a / b
+# test2 = {'a': 1, 'b': 2}
+# print(f2(**test2))
+
+from itertools import *
+def f(x, y, z, w):
+    return not (y <= x) or (z <= w) or not z
+for i in product((0, 1), repeat=7):
+    table = [
+        (i[0], 0, i[1], i[2]),
+        (0, 1, i[3], i[4]),
+        (1, i[5], i[6], 0)
+    ]
+    if len(set(table)) == len(table):
+        for p in permutations('xyzw'):
+            # zip(p, t) - сопоставляет заголовки из p c значениями из t;
+            # dict(zip(p, t)) - преобразует zip объект в базовый тип данных (словарь);
+            # f(**dict(zip(p, t))) - распаковывает через kwargs все ключи в функцию;
+            if [f(**dict(zip(p, t))) for t in table] == [0, 0, 0]:
+                print(*p, sep='')
