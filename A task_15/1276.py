@@ -1,4 +1,3 @@
-```
 from itertools import combinations
 def f(x):
     p = 15 <= x <= 33
@@ -11,4 +10,3 @@ for a1, a2 in combinations(line, 2):
     if all(f(x) for x in line):
         ans.append(a2 - a1)
 print(max(ans))
-```
