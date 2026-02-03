@@ -22,15 +22,23 @@ for N in range(12347 - 12347 % 141, 10 ** 8 + 1, 141):
 print('##################################')
 
 # КомпЕГЭ 4603 (решение перебором)
-from itertools import product
-from string import printable
+# from itertools import product
+# from string import printable
+#
+# ans = []
+# for l in range(0, 4):
+#     for Z in product(printable[:10], repeat=l):
+#         num = int('1234' + ''.join(Z) + '7')
+#         if num % 141 == 0 and num <= 10 ** 8:
+#             ans.append([num, num // 141])
+#
+# for i in sorted(ans):
+#     print(*i)
 
-ans = []
-for l in range(0, 4):
-    for Z in product(printable[:10], repeat=l):
-        num = int('1234' + ''.join(Z) + '7')
-        if num % 141 == 0 and num <= 10 ** 8:
-            ans.append([num, num // 141])
-
-for i in sorted(ans):
-    print(*i)
+# Проверка чисел на простоту
+def is_prime(num):
+    if num < 2: return False
+    for i in range(2, int(num**.5)):
+        if num % i == 0:
+            return False
+    return True
