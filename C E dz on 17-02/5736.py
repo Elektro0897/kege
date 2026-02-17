@@ -8,7 +8,7 @@ def f(num):
             return max(d)
     return 0
 k = 0
-for n in range(10**9, 10**20):
+for n in range(10**9 + 1, 10**20):
     if str(n) == str(n)[::-1]:
         if m := f(n):
             print(n, m)
