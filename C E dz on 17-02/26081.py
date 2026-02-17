@@ -5,7 +5,7 @@ def f(n):
                 return i
     return 0
 k = 0
-for n in range(100000, 1000000):
+for n in range(100000, 1000000, 2):
     if '0' not in str(n) and (m := f(n)):
         print(n, m)
         k += 1
