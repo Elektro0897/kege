@@ -3,9 +3,8 @@ def f(num):
     for i in range(2, int(num**.5) + 1):
         if num % i == 0:
             d |= {i, num // i}
-    if len(d) > 1:
-        if max(d) % 7 == 0:
-            return max(d)
+    if d and max(d) % 7 == 0:
+        return max(d)
     return 0
 k = 0
 for n in range(10**9 + 1, 10**20):
