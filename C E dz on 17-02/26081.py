@@ -1,5 +1,13 @@
-def f(num):
-    d = set()
-    for i in range(2, int(num**.5) + 1):
-        if num % i == 0:
-            d |= {i, num // i}
+def f(n):
+    for x in range(113, n, 226):
+        for i in range(0, 13):
+            if x + 3 ** i == n:
+                return i
+    return 0
+k = 0
+for n in range(100000, 1000000):
+    if '0' not in str(n) and (m := f(n)):
+        print(n, m)
+        k += 1
+        if k == 5:
+            break
