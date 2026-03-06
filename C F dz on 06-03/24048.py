@@ -1,8 +1,14 @@
-from string import printable
-for p in printable[33:36]:
-    num1 = int(f'kot', int(p, 36))
-    num2 = int(f'golodni', int(p, 36))
-    num3 = int(f'meeow', int(p, 36))
-    num4 = int(f'100', int(p, 36))
+def convert10(num, sys):
+    num = num[::-1]
+    k = 0
+    for i in range(len(num)):
+        k += int(num[i], 36)*sys**i
+    return k
+for p in range(33, 100):
+    num1 = convert10('kot', p)
+    num2 = convert10('golodni', p)
+    num3 = convert10('meeow', p)
+    num4 = convert10('100', p)
     if num1 + num2 == num3 * num4 - 20194023088:
-        print(int(f'purr', int(p, 36)))
+        print(convert10('purr', p))
+#1529685
