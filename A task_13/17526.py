@@ -6,3 +6,4 @@ for ip in net:
     if ip.count('1') % 2 != 0:
         k += 1
 print(k)
+#8192
